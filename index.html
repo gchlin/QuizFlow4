@@ -3,192 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>駐波名稱大師 V2.3</title>
-    <link rel="stylesheet" href="style.css">
+    <title>QuizFlow 3.2 - 學習遊戲平台</title>
+    <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
-
-    <div id="preload-container" style="display:none;"></div>
-
-    <div id="time-bar-top" class="time-bar-container hidden" style="top:0;">
-        <div id="time-fill-top" class="time-fill"></div>
-    </div>
-
-    <div id="time-bar-bot" class="time-bar-container hidden" style="bottom:0;">
-        <div id="time-fill-bot" class="time-fill"></div>
-    </div>
-
-    <div id="warning-layer" class="overlay-transparent hidden">
-        <div class="warn-text warn-p1">最後 5 秒!</div>
-        <div class="warn-text warn-p2">最後 5 秒!</div>
-    </div>
-
-    <div id="main-menu" class="overlay">
-        <div class="menu-title">駐波調和大師</div>
-        <div class="rule-text">
-            <b>V2.3 更新</b>：雙向時間條、最後倒數音效<br>
-            搶答規則：先答對+2，後答對+1<br>
-            <b>連續答錯</b>將觸發「破音」懲罰 (-2分)<br>
-            Design: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3b78535a535e497b5f424853154f4258155e5f4e154f4c">[email&#160;protected]</a>, AI coding
-        </div>
-        <button class="mode-btn btn-table" onclick="gameEngine.toggleTable(true)" style="margin-bottom: 20px;">📖 駐波調和教學</button>
+    <div class="menu-container">
+        <h1>🎮 QuizFlow 學習遊戲</h1>
+        <p class="page-subtitle">選擇一個主題開始挑戰！</p>
         
-        <div style="width:100%; border-bottom: 2px solid #eee; margin-bottom:15px; padding-bottom:5px; font-weight:bold; color:#333;">Part 1: 看圖選字</div>
-        <div class="mode-section">
-            <div class="mode-label">🔵 兩端固定</div>
-            <button class="mode-btn btn-practice" onclick="gameEngine.init('practice', 'level1')">自己練習</button>
-            <button class="mode-btn btn-versus" onclick="gameEngine.init('versus', 'level1')">雙人搶答</button>
-        </div>
-        <div class="mode-section">
-            <div class="mode-label">🔵 一端固定一端自由</div>
-            <button class="mode-btn btn-practice" onclick="gameEngine.init('practice', 'level2')">自己練習</button>
-            <button class="mode-btn btn-versus" onclick="gameEngine.init('versus', 'level2')">雙人搶答</button>
-        </div>
-        <div class="mode-section">
-            <div class="mode-label">🔵 混合題目</div>
-            <button class="mode-btn btn-practice" onclick="gameEngine.init('practice', 'level3')">自己練習</button>
-            <button class="mode-btn btn-speed" onclick="gameEngine.init('speed', 'level3')">雙人競速</button>
-            <button class="mode-btn btn-versus" onclick="gameEngine.init('versus', 'level3')">雙人搶答</button>
+        <div id="themeGrid" class="theme-grid">
+            <!-- JavaScript 會動態產生主題卡片 -->
+            <div class="loading">載入主題中</div>
         </div>
 
-        <div style="width:100%; border-bottom: 2px solid #eee; margin:20px 0 15px 0; padding-bottom:5px; font-weight:bold; color:#333;">Part 2: 看字選圖</div>
-        <div class="mode-section">
-            <div class="mode-label" style="border-left-color: #27ae60;">🟢 兩端固定</div>
-            <button class="mode-btn btn-practice" onclick="gameEngine.init('practice', 'level4')">自己練習</button>
-            <button class="mode-btn btn-versus" onclick="gameEngine.init('versus', 'level4')">雙人搶答</button>
-        </div>
-        <div class="mode-section">
-            <div class="mode-label" style="border-left-color: #27ae60;">🟢 一端固定一端自由</div>
-            <button class="mode-btn btn-practice" onclick="gameEngine.init('practice', 'level5')">自己練習</button>
-            <button class="mode-btn btn-versus" onclick="gameEngine.init('versus', 'level5')">雙人搶答</button>
-        </div>
-        <div class="mode-section">
-            <div class="mode-label" style="border-left-color: #27ae60;">🟢 混合題目</div>
-            <button class="mode-btn btn-practice" onclick="gameEngine.init('practice', 'level6')">自己練習</button>
-            <button class="mode-btn btn-speed" onclick="gameEngine.init('speed', 'level6')">雙人競速</button>
-            <button class="mode-btn btn-versus" onclick="gameEngine.init('versus', 'level6')">雙人搶答</button>
-        </div>
-        <div style="height: 50px;"></div> 
-    </div>
-
-    <div id="ref-table-overlay" class="overlay hidden">
-        <button class="close-btn" onclick="gameEngine.toggleTable(false)">✖ 關閉</button>
-        <h2 style="margin-bottom:10px;">駐波名詞對照表</h2>
-        <div id="table-container" style="overflow-y: auto; max-height: 80vh; width:95%; max-width:600px;">
-            <table class="math-table" id="math-table-body"></table>
+        <div class="footer">
+            <p>QuizFlow 3.2 - 通用學習遊戲平台</p>
+            <p>Design: <a href="mailto:chaher@dysh.tyc.edu.tw">chaher@dysh.tyc.edu.tw</a> | AI Coding</p>
         </div>
     </div>
 
-    <div id="countdown-overlay" class="overlay hidden">
-        <div class="countdown-wrapper-top"><div id="cd-num-top" class="countdown-number">3</div></div>
-        <div style="height: 50px;"></div>
-        <div class="countdown-wrapper-bot"><div id="cd-num-bot" class="countdown-number">3</div></div>
-    </div>
-
-    <div id="game-over" class="overlay hidden">
-        <div class="go-half go-top">
-            <div class="result-title" id="res-title-p1"></div>
-            <div class="result-sub" id="res-score-p1"></div>
-            <div class="result-msg" id="res-msg-p1"></div>
-        </div>
-        <div style="z-index:50; padding: 10px;">
-            <button class="menu-btn-small" onclick="gameEngine.showMenu()">主選單</button>
-        </div>
-        <div class="go-half go-bottom">
-            <div class="result-title" id="res-title-p2"></div>
-            <div class="result-sub" id="res-score-p2"></div>
-            <div class="result-msg" id="res-msg-p2"></div>
-        </div>
-    </div>
-
-    <div id="single-player-area" class="hidden">
-        <div class="sp-header">
-            <div class="sp-score-box">Score: <span id="sp-score">0</span></div>
-            <div class="sp-controls">
-                <button class="menu-btn-small" onclick="gameEngine.toggleTable(true)">駐波調和教學</button>
-                <button class="menu-btn-small" style="margin-left:5px;" onclick="gameEngine.showMenu()">MENU</button>
-            </div>
-        </div>
-        <div class="combo-container hidden" id="sp-combo-box">COMBO x<span id="sp-combo-val">0</span></div>
-        <div class="question-box" id="q-sp"></div>
-        <div class="options-grid sp-options-grid" id="opts-sp"></div>
-        <div id="feedback-sp" class="overlay hidden" style="background:rgba(255,255,255,0.9);">
-            <div class="big-circle"></div>
-        </div>
-    </div>
-
-    <div id="versus-container">
-        <div id="p1-area" class="player-area">
-            <div class="combo-display" id="combo-p1" style="opacity:0">Combo x0</div>
-            <div class="question-box" id="q-p1"></div>
-            <div class="options-grid" id="opts-p1"></div>
-            <div id="feedback-p1" class="overlay hidden" style="background:rgba(255,255,255,0.9);">
-                <div class="big-circle"></div>
-                <div class="waiting-text" id="wait-text-p1">動作真快!等待對手...</div>
-            </div>
-        </div>
-
-        <div class="divider">
-            <div class="score-info-group">
-                <div class="score-label" style="color:var(--p2-color)">P2</div>
-                <div class="score-num" id="score-p2">0</div>
-            </div>
-            <div class="bar-container">
-                <div class="bar-fill" id="bar-p2" style="background:var(--p2-color); width:0%;"></div>
-            </div>
-            <div class="center-control">
-                <button class="menu-btn-small" onclick="gameEngine.showMenu()">MENU</button>
-                <div id="timer-display-center" class="timer-center hidden">30</div>
-            </div>
-            <div class="bar-container bar-reverse">
-                <div class="bar-fill" id="bar-p1" style="background:var(--p1-color); width:0%;"></div>
-            </div>
-            <div class="score-info-group p1-group">
-                <div class="score-label" style="color:var(--p1-color)">P1</div>
-                <div class="score-num" id="score-p1">0</div>
-            </div>
-        </div>
-
-        <div id="p2-area" class="player-area">
-            <div class="combo-display" id="combo-p2" style="opacity:0">Combo x0</div>
-            <div class="question-box" id="q-p2"></div>
-            <div class="options-grid" id="opts-p2"></div>
-            <div id="feedback-p2" class="overlay hidden" style="background:rgba(255,255,255,0.9);">
-                <div class="big-circle"></div>
-                <div class="waiting-text" id="wait-text-p2">動作真快!等待對手...</div>
-            </div>
-        </div>
-    </div>
-
-    <div id="game-container" style="display:none;"></div>
-
-    <!-- 載入引擎 -->
     <script src="core/theme-loader.js"></script>
-    <script src="core/game-engine.js"></script>
     <script>
-        // 初始化載入器
-        const loader = new ThemeLoader();
-        let gameEngine = null;
+        // 可用的主題列表
+        const availableThemes = [
+            'wave-harmonics',
+            // 'multiplication',
+            // 'trigonometry'
+            // 未來新增主題時，在這裡加上主題 ID
+        ];
 
-        // 載入主題
-        window.addEventListener('load', async () => {
-            try {
-                console.log('正在載入駐波主題...');
-                const themeData = await loader.loadTheme('wave-harmonics');
-                
-                // 創建遊戲引擎
-                gameEngine = new GameEngine(themeData);
-                window.gameEngine = gameEngine; // 全域存取
-                
-                console.log('遊戲引擎初始化完成！');
-                
-                // 套用主題樣式
-                gameEngine.applyThemeStyles();
-                
-            } catch (error) {
-                console.error('初始化失敗:', error);
-                alert('遊戲載入失敗，請重新整理頁面。\n錯誤: ' + error.message);
+        /**
+         * 載入所有主題
+         */
+        async function loadThemes() {
+            const loader = new ThemeLoader();
+            const grid = document.getElementById('themeGrid');
+            grid.innerHTML = ''; // 清空載入訊息
+
+            for (const themeId of availableThemes) {
+                try {
+                    console.log(`📥 載入主題: ${themeId}`);
+                    const themeData = await loader.loadTheme(themeId);
+                    
+                    // 檢查是否有 menuDisplay 資料
+                    if (!themeData.theme.menuDisplay) {
+                        console.warn(`⚠️ 主題 ${themeId} 缺少 menuDisplay 資料，使用預設值`);
+                        themeData.theme.menuDisplay = createDefaultMenuDisplay(themeId);
+                    }
+
+                    const card = createThemeCard(themeId, themeData.theme);
+                    grid.appendChild(card);
+                    
+                    console.log(`✅ 主題 ${themeId} 載入成功`);
+                } catch (error) {
+                    console.error(`❌ 載入主題 ${themeId} 失敗:`, error);
+                    
+                    // 顯示錯誤訊息
+                    const errorCard = document.createElement('div');
+                    errorCard.className = 'error-message';
+                    errorCard.innerHTML = `
+                        <h3>❌ 載入失敗</h3>
+                        <p>主題：${themeId}</p>
+                        <p>錯誤：${error.message}</p>
+                    `;
+                    grid.appendChild(errorCard);
+                }
             }
+
+            // 如果沒有任何主題載入成功
+            if (grid.children.length === 0) {
+                grid.innerHTML = `
+                    <div class="error-message">
+                        <h3>❌ 找不到可用的主題</h3>
+                        <p>請確認 themes 資料夾中是否有主題檔案</p>
+                    </div>
+                `;
+            }
+        }
+
+        /**
+         * 創建預設的 menuDisplay（如果主題沒有定義）
+         */
+        function createDefaultMenuDisplay(themeId) {
+            return {
+                icon: '🎮',
+                title: themeId,
+                subtitle: '',
+                description: '這個主題尚未設定描述',
+                category: '未分類',
+                difficulty: '未知',
+                primaryColor: '#4A90E2',
+                accentColor: '#7B68EE'
+            };
+        }
+
+        /**
+         * 動態產生主題卡片
+         */
+        function createThemeCard(themeId, theme) {
+            const menu = theme.menuDisplay;
+            
+            const card = document.createElement('div');
+            card.className = 'theme-card';
+            
+            // 🎨 動態套用主題色
+            card.style.setProperty('--theme-primary', menu.primaryColor);
+            card.style.setProperty('--theme-accent', menu.accentColor);
+            
+            // 如果有漸層背景，套用
+            if (menu.gradient) {
+                card.style.background = menu.gradient;
+            }
+            
+            // 根據難度設定不同的樣式
+            let difficultyClass = 'medium';
+            if (menu.difficulty) {
+                const diff = menu.difficulty.toLowerCase();
+                if (diff.includes('簡單') || diff.includes('easy')) {
+                    difficultyClass = 'easy';
+                } else if (diff.includes('困難') || diff.includes('hard') || diff.includes('進階')) {
+                    difficultyClass = 'hard';
+                }
+            }
+            
+            card.innerHTML = `
+                <div class="theme-icon">${menu.icon || menu.emoji || '🎮'}</div>
+                <h2>${menu.title || themeId}</h2>
+                ${menu.subtitle ? `<p class="card-subtitle">${menu.subtitle}</p>` : ''}
+                <p class="description">${menu.description || '尚未設定描述'}</p>
+                <div class="theme-meta">
+                    <span class="badge category">${menu.category || '未分類'}</span>
+                    <span class="badge difficulty ${difficultyClass}">${menu.difficulty || '未知'}</span>
+                </div>
+                <button class="play-btn" onclick="startGame('${themeId}')">
+                    開始遊戲 →
+                </button>
+            `;
+            
+            return card;
+        }
+
+        /**
+         * 開始遊戲
+         */
+        function startGame(themeId) {
+            console.log(`🎮 啟動遊戲: ${themeId}`);
+            window.location.href = `game.html?theme=${themeId}`;
+        }
+
+        // 頁面載入時執行
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('🚀 QuizFlow 3.2 主選單載入中...');
+            loadThemes();
+        });
+
+        // 錯誤處理
+        window.addEventListener('error', (event) => {
+            console.error('💥 頁面錯誤:', event.error);
         });
     </script>
 </body>
