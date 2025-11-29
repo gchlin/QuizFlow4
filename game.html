@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>駐波名稱大師 V2.3</title>
-    <link rel="stylesheet" href="style.css">
+    <title>QuizFlow 3.2 - Game</title>
+    <link rel="stylesheet" href="css/game.css">
+    <!-- 動態載入特殊主題 CSS（如果有的話）-->
+    <link rel="stylesheet" id="customThemeCSS">
 </head>
 <body>
 
+    <!-- 🆕 返回主選單按鈕 -->
+    <button class="menu-btn" onclick="returnToMenu()">← 返回主選單</button>
+    
     <div id="preload-container" style="display:none;"></div>
 
     <div id="time-bar-top" class="time-bar-container hidden" style="top:0;">
@@ -163,7 +168,103 @@
     <div id="game-container" style="display:none;"></div>
 
     <!-- 載入引擎 -->
-    <script src="core/theme-loader.js"></script>
+
+
+<script src="core/theme-loader.js"></script>
+<script>
+    // ==================== 主題載入系統 ====================
+
+    /**
+     * 讀取 URL 參數
+     */
+    const urlParams = new URLSearchParams(window.location.search);
+    const themeName = urlParams.get('theme');
+
+    // 驗證主題參數
+    if (!themeName) {
+        alert('❌ 請從主選單選擇主題');
+        window.location.href = 'index.html';
+        throw new Error('No theme specified');
+    }
+
+    console.log(`🎮 準備載入主題: ${themeName}`);
+
+    /**
+     * 載入主題資料
+     */
+    let themeData = null;
+    const loader = new ThemeLoader();
+
+    async function initTheme() {
+        try {
+            console.log(`📥 載入主題 ${themeName}...`);
+            themeData = await loader.loadTheme(themeName);
+            console.log('✅ 主題載入成功:', themeData);
+
+            // 🎨 如果有特殊 CSS，動態載入
+            if (themeData.theme.gameDisplay?.useCustomCSS) {
+                const customCSS = document.getElementById('customThemeCSS');
+                const cssPath = themeData.theme.gameDisplay.customCSSPath;
+                customCSS.href = `themes/${themeName}/${cssPath}`;
+                console.log(`🎨 載入特殊 CSS: ${cssPath}`);
+            }
+
+            // 🎨 套用主題色（通過 CSS 變數）
+            applyThemeColors(themeData.theme.gameDisplay);
+
+            // ✅ 主題載入完成，可以初始化遊戲
+            console.log('✅ 主題系統初始化完成');
+
+            // 原本的遊戲初始化會在這裡執行
+            // 例如：initGame();
+
+        } catch (error) {
+            console.error('❌ 主題載入失敗:', error);
+            alert(`主題載入失敗：${error.message}\n\n將返回主選單`);
+            window.location.href = 'index.html';
+        }
+    }
+
+    /**
+     * 套用主題色到 CSS 變數
+     */
+    function applyThemeColors(gameDisplay) {
+        if (!gameDisplay || !gameDisplay.colors) return;
+
+        const root = document.documentElement;
+        const colors = gameDisplay.colors;
+
+        if (colors.player1) {
+            root.style.setProperty('--p1-color', colors.player1);
+            root.style.setProperty('--color-p1', colors.player1);
+        }
+        if (colors.player2) {
+            root.style.setProperty('--p2-color', colors.player2);
+            root.style.setProperty('--color-p2', colors.player2);
+        }
+        if (colors.background) {
+            root.style.setProperty('--bg-color', colors.background);
+            root.style.setProperty('--color-bg', colors.background);
+        }
+
+        console.log('🎨 主題色已套用');
+    }
+
+    /**
+     * 返回主選單
+     */
+    function returnToMenu() {
+        // 如果遊戲正在進行，先確認
+        if (confirm('確定要返回主選單嗎？進度將不會保存。')) {
+            window.location.href = 'index.html';
+        }
+    }
+
+    // 初始化主題（立即執行）
+    initTheme();
+</script>
+
+
     <script src="core/game-engine.js"></script>
     <script>
         // 初始化載入器
