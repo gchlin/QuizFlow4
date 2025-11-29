@@ -1,107 +1,119 @@
 {
-
-"metadata": {
-  "name": "Standing Wave Harmonics Terms",
-  "version": "2.0",
-  "author": "chaher@dysh.tyc.edu.tw",
-  "description": "駐波名稱配對遊戲主題"
-},
-
-  "meta": {
-    "id": "wave-harmonics",
-    "name": "駐波命名大師",
-    "version": "2.3",
-    "description": "學習駐波圖像與泛音諧音的對應關係"
+  "metadata": {
+    "name": "Standing Wave Harmonics",
+    "version": "2.0",
+    "author": "chaher@dysh.tyc.edu.tw",
+    "description": "駐波泛音物理教學遊戲主題",
+    "lastModified": "2025-11-28",
+    "license": "Educational Use"
   },
-  "messages": {
-    "win": [
-      "你是駐波大師",
-      "諧音泛音如數家珍",
-      "不是泛泛之輩卻是泛音小天才",
-      "諧音耿大師"
-    ],
-    "lose": [
-      "老師在講你有在聽嗎~",
-      "是不是該看點書了",
-      "失敗為成功之母，再來一次！",
-      "差一點點就開竅了！",
-      "加油，物理之神在等你覺醒"
-    ],
-    "draw": [
-      "那還不再一局?",
-      "還是見好就收!"
-    ],
-    "penalty": {
-      "text": "破音啦",
-      "threshold": 2,
-      "scoreDeduction": -2
+
+  "menuDisplay": {
+    "icon": "🌊",
+    "emoji": "🎵",
+    "title": "駐波命名大師",
+    "subtitle": "Standing Wave Harmonics",
+    "description": "學習駐波圖像與泛音諧音的對應關係，透過視覺化圖片理解物理概念",
+    "category": "物理",
+    "difficulty": "中等",
+    "primaryColor": "#4A90E2",
+    "accentColor": "#7B68EE",
+    "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    "thumbnail": ""
+  },
+
+  "gameDisplay": {
+    "useCustomCSS": false,
+    "customCSSPath": "",
+    "colors": {
+      "player1": "#FF6B6B",
+      "player2": "#4ECDC4",
+      "background": "#f7f9fc",
+      "correct": "#2ecc71",
+      "wrong": "#e74c3c"
     },
-    "warning": {
-      "text": "最後 5 秒!",
-      "triggerTime": 5
+    "layout": {
+      "optionGrid": {
+        "columns": 2,
+        "gap": "10px",
+        "maxWidth": "400px"
+      },
+      "questionBox": {
+        "fontSize": "1.8rem",
+        "fontWeight": "bold",
+        "marginBottom": "15px"
+      }
     },
-    "combo": {
-      "text": "COMBO",
-      "minCount": 2
+    "messages": {
+      "win": {
+        "p1": "玩家 1 獲勝！",
+        "p2": "玩家 2 獲勝！"
+      },
+      "lose": {
+        "p1": "再接再厲！",
+        "p2": "下次加油！"
+      },
+      "draw": "平手！實力相當！",
+      "combo": {
+        "2": "連擊 ×2！",
+        "3": "連擊 ×3！",
+        "4": "連擊 ×4！太強了！",
+        "5": "連擊 ×5！無人能擋！"
+      }
     },
-    "waiting": {
-      "p1": "動作真快!等待對手...",
-      "p2": "動作真快!等待對手..."
+    "sounds": {
+      "enabled": true,
+      "correctSound": "sounds/correct.mp3",
+      "wrongSound": "sounds/wrong.mp3",
+      "comboSound": "sounds/combo.mp3"
     }
   },
-  "layout": {
-    "optionGrid": {
-      "practice": "2x2",
-      "versus": "2x2",
-      "speed": "2x2"
-    },
-    "questionPosition": "top",
-    "p1Rotate": true,
-    "fontSize": {
-      "question": "1.8rem",
-      "option": "1.6rem",
-      "score": "1.4rem",
-      "combo": "1rem"
-    },
-    "spacing": {
-      "questionMarginBottom": "15px",
-      "optionGap": "10px",
-      "optionMinHeight": "70px"
-    }
-  },
+
   "colors": {
     "player1": "#FF6B6B",
     "player2": "#4ECDC4",
     "background": "#f7f9fc",
-    "correct": "#2ecc71",
-    "wrong": "#e74c3c",
-    "warning": "#f39c12",
-    "combo": "#f39c12",
-    "timeBar": "#e74c3c",
-    "divider": "#bdc3c7"
+    "text": "#333",
+    "button": {
+      "normal": "#fff",
+      "hover": "#f0f0f0",
+      "active": "#e0e0e0",
+      "correct": "#2ecc71",
+      "wrong": "#e74c3c"
+    }
   },
-  "cssVariables": {
-    "--p1-color": "#FF6B6B",
-    "--p2-color": "#4ECDC4",
-    "--bg-color": "#f7f9fc",
-    "--correct-color": "#2ecc71",
-    "--wrong-color": "#e74c3c",
-    "--option-border-radius": "12px",
-    "--option-min-height": "70px"
+
+  "layout": {
+    "optionGrid": {
+      "columns": 2,
+      "gap": "10px",
+      "maxWidth": "400px"
+    },
+    "questionImage": {
+      "maxWidth": "100%",
+      "maxHeight": "160px"
+    },
+    "singlePlayerQuestion": {
+      "maxHeight": "250px"
+    }
   },
-  "animations": {
-    "correctDuration": "0.5s",
-    "wrongDuration": "0.4s",
-    "comboDuration": "0.3s",
-    "floatScoreDuration": "1s"
-  },
-  "features": {
-    "combo": true,
-    "penaltyMultiplier": true,
-    "wrongQueueReplay": true,
-    "timeWarning": true,
-    "soundEffects": true,
-    "countdownBeforeStart": true,
-    "referenceTable": true
+
+  "messages": {
+    "win": {
+      "p1": "🎉 玩家 1 獲勝！",
+      "p2": "🎉 玩家 2 獲勝！"
+    },
+    "lose": {
+      "p1": "💪 再接再厲！",
+      "p2": "💪 下次加油！"
+    },
+    "draw": "🤝 平手！實力相當！",
+    "waiting": "等待對手...",
+    "timeout": "⏰ 時間到！",
+    "combo": {
+      "prefix": "連擊",
+      "suffix": "！"
+    },
+    "brokenVoice": "💥 破音懲罰！-2 分"
   }
 }
