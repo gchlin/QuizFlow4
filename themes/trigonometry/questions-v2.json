@@ -1,0 +1,53 @@
+{
+  "answerPools": {
+    "sin-values": {
+      "category": "sin-value",
+      "items": [
+        {"id": "s0", "text": "0"},
+        {"id": "s30", "text": "<span class='fraction'><span class='numerator'>1</span><span class='denominator'>2</span></span>"},
+        {"id": "s45", "text": "<span class='fraction'><span class='numerator'>√2</span><span class='denominator'>2</span></span>"},
+        {"id": "s60", "text": "<span class='fraction'><span class='numerator'>√3</span><span class='denominator'>2</span></span>"},
+        {"id": "s90", "text": "1"}
+      ]
+    },
+    "angles": {
+      "category": "angle",
+      "items": [
+        {"id": "a0", "text": "0°"},
+        {"id": "a30", "text": "30°"},
+        {"id": "a45", "text": "45°"},
+        {"id": "a60", "text": "60°"},
+        {"id": "a90", "text": "90°"}
+      ]
+    }
+  },
+  
+  "questionSets": {
+    "level1": [
+      {
+        "id": "q1",
+        "question": {"type": "text", "value": "sin(30°) = ?"},
+        "correctAnswerId": "s30",
+        "answerPoolIds": ["sin-values"]
+      },
+      {
+        "id": "q2",
+        "question": {"type": "text", "value": "sin(45°) = ?"},
+        "correctAnswerId": "s45",
+        "answerPoolIds": ["sin-values"]
+      }
+    ]
+  },
+  
+  "referenceTable": {
+    "title": "三角函數值表",
+    "headers": ["角度", "sin", "cos", "tan"],
+    "rows": [
+      ["0°", "0", "1", "0"],
+      ["30°", "1/2", "√3/2", "√3/3"],
+      ["45°", "√2/2", "√2/2", "1"],
+      ["60°", "√3/2", "1/2", "√3"],
+      ["90°", "1", "0", "—"]
+    ]
+  }
+}

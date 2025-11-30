@@ -1,0 +1,42 @@
+{
+  "answerPools": {
+    "results": {
+      "category": "number",
+      "items": [
+        {"id": "r6", "text": "6"},
+        {"id": "r12", "text": "12"},
+        {"id": "r18", "text": "18"},
+        {"id": "r24", "text": "24"},
+        {"id": "r30", "text": "30"},
+        {"id": "r36", "text": "36"}
+      ]
+    }
+  },
+  
+  "questionSets": {
+    "level1": [
+      {
+        "id": "q1",
+        "question": {"type": "text", "value": "3 × 4 = ?"},
+        "correctAnswerId": "r12",
+        "answerPoolIds": ["results"]
+      },
+      {
+        "id": "q2",
+        "question": {"type": "text", "value": "6 × 6 = ?"},
+        "correctAnswerId": "r36",
+        "answerPoolIds": ["results"]
+      }
+    ]
+  },
+  
+  "referenceTable": {
+    "title": "九九乘法表",
+    "headers": ["×", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    "rows": [
+      ["1", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+      ["2", "2", "4", "6", "8", "10", "12", "14", "16", "18"],
+      ["3", "3", "6", "9", "12", "15", "18", "21", "24", "27"]
+    ]
+  }
+}
