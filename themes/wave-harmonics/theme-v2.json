@@ -4,8 +4,7 @@
     "version": "2.0",
     "author": "chaher@dysh.tyc.edu.tw",
     "description": "駐波泛音物理教學遊戲主題",
-    "lastModified": "2025-11-28",
-    "license": "Educational Use"
+    "lastModified": "2025-11-28"
   },
 
   "menuDisplay": {
@@ -18,8 +17,7 @@
     "difficulty": "中等",
     "primaryColor": "#4A90E2",
     "accentColor": "#7B68EE",
-    "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    "thumbnail": ""
+    "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
   },
 
   "gameDisplay": {
@@ -28,44 +26,7 @@
     "colors": {
       "player1": "#FF6B6B",
       "player2": "#4ECDC4",
-      "background": "#f7f9fc",
-      "correct": "#2ecc71",
-      "wrong": "#e74c3c"
-    },
-    "layout": {
-      "optionGrid": {
-        "columns": 2,
-        "gap": "10px",
-        "maxWidth": "400px"
-      },
-      "questionBox": {
-        "fontSize": "1.8rem",
-        "fontWeight": "bold",
-        "marginBottom": "15px"
-      }
-    },
-    "messages": {
-      "win": {
-        "p1": "玩家 1 獲勝！",
-        "p2": "玩家 2 獲勝！"
-      },
-      "lose": {
-        "p1": "再接再厲！",
-        "p2": "下次加油！"
-      },
-      "draw": "平手！實力相當！",
-      "combo": {
-        "2": "連擊 ×2！",
-        "3": "連擊 ×3！",
-        "4": "連擊 ×4！太強了！",
-        "5": "連擊 ×5！無人能擋！"
-      }
-    },
-    "sounds": {
-      "enabled": true,
-      "correctSound": "sounds/correct.mp3",
-      "wrongSound": "sounds/wrong.mp3",
-      "comboSound": "sounds/combo.mp3"
+      "background": "#f7f9fc"
     }
   },
 

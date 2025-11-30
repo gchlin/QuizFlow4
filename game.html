@@ -12,7 +12,7 @@
 
     <!-- 🆕 返回主選單按鈕 -->
     <button class="menu-btn" onclick="returnToMenu()">← 返回主選單</button>
-    
+
     <div id="preload-container" style="display:none;"></div>
 
     <div id="time-bar-top" class="time-bar-container hidden" style="top:0;">
@@ -24,60 +24,58 @@
     </div>
 
     <div id="warning-layer" class="overlay-transparent hidden">
-        <div class="warn-text warn-p1">最後 5 秒!</div>
-        <div class="warn-text warn-p2">最後 5 秒!</div>
-    </div>
+        <div class="warn-text warn-p1">最後 5 秒!</div> <div class="warn-text warn-p2">最後 5 秒!</div> </div>
 
     <div id="main-menu" class="overlay">
-        <div class="menu-title">駐波調和大師</div>
+        <div class="menu-title">駐波名稱大師</div>
         <div class="rule-text">
             <b>V2.3 更新</b>：雙向時間條、最後倒數音效<br>
             搶答規則：先答對+2，後答對+1<br>
             <b>連續答錯</b>將觸發「破音」懲罰 (-2分)<br>
-            Design: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3b78535a535e497b5f424853154f4258155e5f4e154f4c">[email&#160;protected]</a>, AI coding
+            Design: chaher@dysh.tyc.edu.tw, AI coding
         </div>
-        <button class="mode-btn btn-table" onclick="gameEngine.toggleTable(true)" style="margin-bottom: 20px;">📖 駐波調和教學</button>
+        <button class="mode-btn btn-table" onclick="Game.toggleTable(true)" style="margin-bottom: 20px;">📖 駐波名稱教學</button>
         
         <div style="width:100%; border-bottom: 2px solid #eee; margin-bottom:15px; padding-bottom:5px; font-weight:bold; color:#333;">Part 1: 看圖選字</div>
         <div class="mode-section">
             <div class="mode-label">🔵 兩端固定</div>
-            <button class="mode-btn btn-practice" onclick="gameEngine.init('practice', 'level1')">自己練習</button>
-            <button class="mode-btn btn-versus" onclick="gameEngine.init('versus', 'level1')">雙人搶答</button>
+            <button class="mode-btn btn-practice" onclick="Game.init('practice', 0, 'level1')">自己練習</button>
+            <button class="mode-btn btn-versus" onclick="Game.init('versus', 20, 'level1')">雙人搶答</button>
         </div>
         <div class="mode-section">
             <div class="mode-label">🔵 一端固定一端自由</div>
-            <button class="mode-btn btn-practice" onclick="gameEngine.init('practice', 'level2')">自己練習</button>
-            <button class="mode-btn btn-versus" onclick="gameEngine.init('versus', 'level2')">雙人搶答</button>
+            <button class="mode-btn btn-practice" onclick="Game.init('practice', 0, 'level2')">自己練習</button>
+            <button class="mode-btn btn-versus" onclick="Game.init('versus', 20, 'level2')">雙人搶答</button>
         </div>
         <div class="mode-section">
             <div class="mode-label">🔵 混合題目</div>
-            <button class="mode-btn btn-practice" onclick="gameEngine.init('practice', 'level3')">自己練習</button>
-            <button class="mode-btn btn-speed" onclick="gameEngine.init('speed', 'level3')">雙人競速</button>
-            <button class="mode-btn btn-versus" onclick="gameEngine.init('versus', 'level3')">雙人搶答</button>
+            <button class="mode-btn btn-practice" onclick="Game.init('practice', 0, 'level3')">自己練習</button>
+            <button class="mode-btn btn-speed" onclick="Game.init('speed', 0, 'level3')">雙人競速</button>
+            <button class="mode-btn btn-versus" onclick="Game.init('versus', 20, 'level3')">雙人搶答</button>
         </div>
 
         <div style="width:100%; border-bottom: 2px solid #eee; margin:20px 0 15px 0; padding-bottom:5px; font-weight:bold; color:#333;">Part 2: 看字選圖</div>
         <div class="mode-section">
             <div class="mode-label" style="border-left-color: #27ae60;">🟢 兩端固定</div>
-            <button class="mode-btn btn-practice" onclick="gameEngine.init('practice', 'level4')">自己練習</button>
-            <button class="mode-btn btn-versus" onclick="gameEngine.init('versus', 'level4')">雙人搶答</button>
+            <button class="mode-btn btn-practice" onclick="Game.init('practice', 0, 'level4')">自己練習</button>
+            <button class="mode-btn btn-versus" onclick="Game.init('versus', 20, 'level4')">雙人搶答</button>
         </div>
         <div class="mode-section">
             <div class="mode-label" style="border-left-color: #27ae60;">🟢 一端固定一端自由</div>
-            <button class="mode-btn btn-practice" onclick="gameEngine.init('practice', 'level5')">自己練習</button>
-            <button class="mode-btn btn-versus" onclick="gameEngine.init('versus', 'level5')">雙人搶答</button>
+            <button class="mode-btn btn-practice" onclick="Game.init('practice', 0, 'level5')">自己練習</button>
+            <button class="mode-btn btn-versus" onclick="Game.init('versus', 20, 'level5')">雙人搶答</button>
         </div>
         <div class="mode-section">
             <div class="mode-label" style="border-left-color: #27ae60;">🟢 混合題目</div>
-            <button class="mode-btn btn-practice" onclick="gameEngine.init('practice', 'level6')">自己練習</button>
-            <button class="mode-btn btn-speed" onclick="gameEngine.init('speed', 'level6')">雙人競速</button>
-            <button class="mode-btn btn-versus" onclick="gameEngine.init('versus', 'level6')">雙人搶答</button>
+            <button class="mode-btn btn-practice" onclick="Game.init('practice', 0, 'level6')">自己練習</button>
+            <button class="mode-btn btn-speed" onclick="Game.init('speed', 0, 'level6')">雙人競速</button>
+            <button class="mode-btn btn-versus" onclick="Game.init('versus', 20, 'level6')">雙人搶答</button>
         </div>
         <div style="height: 50px;"></div> 
     </div>
 
     <div id="ref-table-overlay" class="overlay hidden">
-        <button class="close-btn" onclick="gameEngine.toggleTable(false)">✖ 關閉</button>
+        <button class="close-btn" onclick="Game.toggleTable(false)">✖ 關閉</button>
         <h2 style="margin-bottom:10px;">駐波名詞對照表</h2>
         <div id="table-container" style="overflow-y: auto; max-height: 80vh; width:95%; max-width:600px;">
             <table class="math-table" id="math-table-body"></table>
@@ -97,7 +95,7 @@
             <div class="result-msg" id="res-msg-p1"></div>
         </div>
         <div style="z-index:50; padding: 10px;">
-            <button class="menu-btn-small" onclick="gameEngine.showMenu()">主選單</button>
+            <button class="menu-btn-small" onclick="Game.showMenu()">主選單</button>
         </div>
         <div class="go-half go-bottom">
             <div class="result-title" id="res-title-p2"></div>
@@ -110,8 +108,8 @@
         <div class="sp-header">
             <div class="sp-score-box">Score: <span id="sp-score">0</span></div>
             <div class="sp-controls">
-                <button class="menu-btn-small" onclick="gameEngine.toggleTable(true)">駐波調和教學</button>
-                <button class="menu-btn-small" style="margin-left:5px;" onclick="gameEngine.showMenu()">MENU</button>
+                <button class="menu-btn-small" onclick="Game.toggleTable(true)">駐波名稱教學</button>
+                <button class="menu-btn-small" style="margin-left:5px;" onclick="Game.showMenu()">MENU</button>
             </div>
         </div>
         <div class="combo-container hidden" id="sp-combo-box">COMBO x<span id="sp-combo-val">0</span></div>
@@ -142,7 +140,7 @@
                 <div class="bar-fill" id="bar-p2" style="background:var(--p2-color); width:0%;"></div>
             </div>
             <div class="center-control">
-                <button class="menu-btn-small" onclick="gameEngine.showMenu()">MENU</button>
+                <button class="menu-btn-small" onclick="Game.showMenu()">MENU</button>
                 <div id="timer-display-center" class="timer-center hidden">30</div>
             </div>
             <div class="bar-container bar-reverse">
@@ -165,132 +163,95 @@
         </div>
     </div>
 
-    <div id="game-container" style="display:none;"></div>
-
-    <!-- 載入引擎 -->
-
-
-<script src="core/theme-loader.js"></script>
-<script>
-    // ==================== 主題載入系統 ====================
-
-    /**
-     * 讀取 URL 參數
-     */
-    const urlParams = new URLSearchParams(window.location.search);
-    const themeName = urlParams.get('theme');
-
-    // 驗證主題參數
-    if (!themeName) {
-        alert('❌ 請從主選單選擇主題');
-        window.location.href = 'index.html';
-        throw new Error('No theme specified');
-    }
-
-    console.log(`🎮 準備載入主題: ${themeName}`);
-
-    /**
-     * 載入主題資料
-     */
-    let themeData = null;
-    const loader = new ThemeLoader();
-
-    async function initTheme() {
-        try {
-            console.log(`📥 載入主題 ${themeName}...`);
-            themeData = await loader.loadTheme(themeName);
-            console.log('✅ 主題載入成功:', themeData);
-
-            // 🎨 如果有特殊 CSS，動態載入
-            if (themeData.theme.gameDisplay?.useCustomCSS) {
-                const customCSS = document.getElementById('customThemeCSS');
-                const cssPath = themeData.theme.gameDisplay.customCSSPath;
-                customCSS.href = `themes/${themeName}/${cssPath}`;
-                console.log(`🎨 載入特殊 CSS: ${cssPath}`);
-            }
-
-            // 🎨 套用主題色（通過 CSS 變數）
-            applyThemeColors(themeData.theme.gameDisplay);
-
-            // ✅ 主題載入完成，可以初始化遊戲
-            console.log('✅ 主題系統初始化完成');
-
-            // 原本的遊戲初始化會在這裡執行
-            // 例如：initGame();
-
-        } catch (error) {
-            console.error('❌ 主題載入失敗:', error);
-            alert(`主題載入失敗：${error.message}\n\n將返回主選單`);
-            window.location.href = 'index.html';
-        }
-    }
-
-    /**
-     * 套用主題色到 CSS 變數
-     */
-    function applyThemeColors(gameDisplay) {
-        if (!gameDisplay || !gameDisplay.colors) return;
-
-        const root = document.documentElement;
-        const colors = gameDisplay.colors;
-
-        if (colors.player1) {
-            root.style.setProperty('--p1-color', colors.player1);
-            root.style.setProperty('--color-p1', colors.player1);
-        }
-        if (colors.player2) {
-            root.style.setProperty('--p2-color', colors.player2);
-            root.style.setProperty('--color-p2', colors.player2);
-        }
-        if (colors.background) {
-            root.style.setProperty('--bg-color', colors.background);
-            root.style.setProperty('--color-bg', colors.background);
-        }
-
-        console.log('🎨 主題色已套用');
-    }
-
-    /**
-     * 返回主選單
-     */
-    function returnToMenu() {
-        // 如果遊戲正在進行，先確認
-        if (confirm('確定要返回主選單嗎？進度將不會保存。')) {
-            window.location.href = 'index.html';
-        }
-    }
-
-    // 初始化主題（立即執行）
-    initTheme();
-</script>
-
-
-    <script src="core/game-engine.js"></script>
+    <!-- ==================== 主題載入系統 ==================== -->
+    <script src="core/theme-loader.js"></script>
     <script>
-        // 初始化載入器
-        const loader = new ThemeLoader();
-        let gameEngine = null;
+        // 讀取 URL 參數
+        const urlParams = new URLSearchParams(window.location.search);
+        const themeName = urlParams.get('theme');
 
-        // 載入主題
-        window.addEventListener('load', async () => {
+        // 驗證主題參數
+        if (!themeName) {
+            alert('❌ 請從主選單選擇主題');
+            window.location.href = 'index.html';
+            throw new Error('No theme specified');
+        }
+
+        console.log(`🎮 準備載入主題: ${themeName}`);
+
+        // 主題資料（全域變數）
+        let themeData = null;
+        const loader = new ThemeLoader();
+
+        /**
+         * 載入主題資料
+         */
+        async function initTheme() {
             try {
-                console.log('正在載入駐波主題...');
-                const themeData = await loader.loadTheme('wave-harmonics');
-                
-                // 創建遊戲引擎
-                gameEngine = new GameEngine(themeData);
-                window.gameEngine = gameEngine; // 全域存取
-                
-                console.log('遊戲引擎初始化完成！');
-                
-                // 套用主題樣式
-                gameEngine.applyThemeStyles();
+                console.log(`📥 載入主題 ${themeName}...`);
+                themeData = await loader.loadTheme(themeName);
+                console.log('✅ 主題載入成功:', themeData);
+
+                // 🎨 如果有特殊 CSS，動態載入
+                if (themeData.theme.gameDisplay?.useCustomCSS) {
+                    const customCSS = document.getElementById('customThemeCSS');
+                    const cssPath = themeData.theme.gameDisplay.customCSSPath;
+                    customCSS.href = `themes/${themeName}/${cssPath}`;
+                    console.log(`🎨 載入特殊 CSS: ${cssPath}`);
+                }
+
+                // 🎨 套用主題色（通過 CSS 變數）
+                applyThemeColors(themeData.theme.gameDisplay);
+
+                console.log('✅ 主題系統初始化完成');
                 
             } catch (error) {
-                console.error('初始化失敗:', error);
-                alert('遊戲載入失敗，請重新整理頁面。\n錯誤: ' + error.message);
+                console.error('❌ 主題載入失敗:', error);
+                alert(`主題載入失敗：${error.message}\n\n將返回主選單`);
+                window.location.href = 'index.html';
             }
-        });
+        }
+
+        /**
+         * 套用主題色到 CSS 變數
+         */
+        function applyThemeColors(gameDisplay) {
+            if (!gameDisplay || !gameDisplay.colors) return;
+
+            const root = document.documentElement;
+            const colors = gameDisplay.colors;
+
+            if (colors.player1) {
+                root.style.setProperty('--p1-color', colors.player1);
+                root.style.setProperty('--color-p1', colors.player1);
+            }
+            if (colors.player2) {
+                root.style.setProperty('--p2-color', colors.player2);
+                root.style.setProperty('--color-p2', colors.player2);
+            }
+            if (colors.background) {
+                root.style.setProperty('--bg-color', colors.background);
+                root.style.setProperty('--color-bg', colors.background);
+            }
+
+            console.log('🎨 主題色已套用');
+        }
+
+        /**
+         * 返回主選單
+         */
+        function returnToMenu() {
+            if (confirm('確定要返回主選單嗎？進度將不會保存。')) {
+                window.location.href = 'index.html';
+            }
+        }
+
+        // 初始化主題（立即執行）
+        initTheme();
     </script>
+
+    <!-- ==================== 遊戲引擎（原本的代碼）==================== -->
+    <script src="core/game-engine.js"></script>
+
 </body>
 </html>
