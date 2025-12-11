@@ -1,25 +1,23 @@
 {
-  "metadata": {
+  "meta": {
     "name": "Standing Wave Harmonics",
     "version": "2.0",
     "author": "chaher@dysh.tyc.edu.tw",
-    "description": "駐波泛音物理教學遊戲主題",
+    "description": "駐波與諧音練習主題",
     "lastModified": "2025-11-28"
   },
-
   "menuDisplay": {
-    "icon": "🌊",
-    "emoji": "🎵",
-    "title": "駐波命名大師",
+    "icon": "\uD83C\uDFB6",
+    "emoji": "\uD83C\uDFB6",
+    "title": "駐波稱號大師",
     "subtitle": "Standing Wave Harmonics",
-    "description": "學習駐波圖像與泛音諧音的對應關係，透過視覺化圖片理解物理概念",
+    "description": "學習駐波型態與諧音泛音對應，透過視覺化加深概念。",
     "category": "物理",
     "difficulty": "中等",
     "primaryColor": "#4A90E2",
     "accentColor": "#7B68EE",
     "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
   },
-
   "gameDisplay": {
     "useCustomCSS": false,
     "customCSSPath": "",
@@ -29,7 +27,6 @@
       "background": "#f7f9fc"
     }
   },
-
   "colors": {
     "player1": "#FF6B6B",
     "player2": "#4ECDC4",
@@ -43,12 +40,12 @@
       "wrong": "#e74c3c"
     }
   },
-
   "layout": {
     "optionGrid": {
-      "columns": 2,
-      "gap": "10px",
-      "maxWidth": "400px"
+      "practice": "2x2",
+      "versus": "2x2",
+      "speed": "2x2",
+      "duel": "2x2"
     },
     "questionImage": {
       "maxWidth": "100%",
@@ -58,23 +55,35 @@
       "maxHeight": "250px"
     }
   },
-
   "messages": {
-    "win": {
-      "p1": "🎉 玩家 1 獲勝！",
-      "p2": "🎉 玩家 2 獲勝！"
-    },
-    "lose": {
-      "p1": "💪 再接再厲！",
-      "p2": "💪 下次加油！"
-    },
-    "draw": "🤝 平手！實力相當！",
+    "win": [
+      "你是駐波大師！",
+      "諧音泛音如數家珍！"
+    ],
+    "lose": [
+      "再接再厲！",
+      "差一點點，再來一次！"
+    ],
+    "draw": [
+      "平手！再決勝負？"
+    ],
     "waiting": "等待對手...",
-    "timeout": "⏰ 時間到！",
+    "timeout": "時間到！",
     "combo": {
-      "prefix": "連擊",
-      "suffix": "！"
+      "minCount": 2,
+      "text": "COMBO"
     },
-    "brokenVoice": "💥 破音懲罰！-2 分"
+    "penalty": {
+      "threshold": 2,
+      "scoreDeduction": -2,
+      "text": "破音"
+    },
+    "warning": {
+      "triggerTime": 5,
+      "text": "倒數"
+    }
+  },
+  "features": {
+    "soundEffects": true
   }
 }
